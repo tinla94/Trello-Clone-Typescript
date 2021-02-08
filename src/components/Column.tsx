@@ -1,5 +1,6 @@
 import React from 'react';
 import { ColumnContainer, ColumnTitle } from 'styles';
+import AddNewItem from 'components/AddNewItem';
 
 interface ColumnProps {
     text?: string
@@ -9,10 +10,13 @@ interface ColumnProps {
 const Column: React.FC<ColumnProps> = ({ text, children }) => {
     return (
         <ColumnContainer>
-            <ColumnTitle>
-                {text}
-            </ColumnTitle>
+            <ColumnTitle>{text}</ColumnTitle>
             {children}
+            <AddNewItem
+                toggleButtonText="+ Add another task"
+                onAdd={console.log}
+                dark
+            />
         </ColumnContainer>
     )
 }
