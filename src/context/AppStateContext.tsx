@@ -1,7 +1,10 @@
-import React, { createContext } from 'react';
+import { DragItem } from 'components/DragItem';
+import React, { createContext, useContext, useReducer } from 'react';
+import { appStateReducer } from 'reducers/AppReducers';
 
 interface AppStateContextProps {
     state: AppState
+    dispatch: any
 }
 
 const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps);
@@ -19,6 +22,7 @@ interface List {
 
 export interface AppState {
     lists: List[]
+    draggedItem?: DragItem
 }
 
 const appData: AppState = {
@@ -42,9 +46,16 @@ const appData: AppState = {
 }
 
 export const AppStateProvider = ({ children }: React.PropsWithChildren<{}>) => {
+    const [state, dispatch] = useReducer(appStateReducer, appData)
+
     return (
-        <AppStateContext.Provider value={{ state: appData }}>
+        // @ts-ignore
+        <AppStateContext.Provider value={{ state, dispatch }}>
             {children}
         </AppStateContext.Provider>
     )
+}
+
+export const useAppState = () => {
+    return useContext(AppStateContext)
 }

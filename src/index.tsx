@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { AppStateProvider } from 'context/AppStateContext';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend as Backend } from 'react-dnd-html5-backend';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AppStateProvider>
-      <App />
-    </AppStateProvider>
+    {/* @ts-ignore */}
+    <DndProvider backend={Backend}>
+      <AppStateProvider>
+        <App />
+      </AppStateProvider>
+    </DndProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
