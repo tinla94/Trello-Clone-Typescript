@@ -1,4 +1,4 @@
-import { DragItem } from "components/DragItem";
+import { DragItem } from "typings/DragItem";
 
 export const isHidden = (
     draggedItem: DragItem | undefined,

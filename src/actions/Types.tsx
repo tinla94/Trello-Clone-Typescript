@@ -1,10 +1,13 @@
-import { DragItem } from "components/DragItem";
+import { DragItem } from "typings/DragItem";
 
 export enum ActionTypes {
     ADD_LIST = "ADD_LIST",
     ADD_TASK = "ADD_TASK",
     MOVE_LIST = "MOVE_LIST",
-    SET_DRAGGED_ITEM = "SET_DRAGGED_ITEM"
+    MOVE_TASK = 'MOVE_TASK',
+    SET_DRAGGED_ITEM = "SET_DRAGGED_ITEM",
+    COLUMN = "COLUMN",
+    CARD = "CARD"
 }
 
 export type Action =

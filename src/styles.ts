@@ -6,7 +6,8 @@ interface AddItemButtonProps {
 }
 
 interface DragPreviewContainerProps {
-  isHidden?: boolean
+  isHidden?: boolean;
+  isPreview?: boolean;
 }
 
 // styles
@@ -50,6 +51,16 @@ export const NewItemFormContainer = styled.div`
   flex-direction: column;
   width: 100%;
   align-items: flex-start;
+`
+
+export const CustomDragLayerContainer = styled.div`
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
 `
 
 /* =================== TEXT ===================*/

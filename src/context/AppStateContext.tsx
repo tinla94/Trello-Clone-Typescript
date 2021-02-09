@@ -1,4 +1,4 @@
-import { DragItem } from 'components/DragItem';
+import { DragItem } from 'typings/DragItem';
 import React, { createContext, useContext, useReducer } from 'react';
 import { appStateReducer } from 'reducers/AppReducers';
 
