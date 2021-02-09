@@ -1,13 +1,16 @@
 import express, { Response, Request } from "express";
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import * as dotenv from 'dotenv';
+
+dotenv.config(); // load .env files
 
 const app = express()
 
 app.use(cors());
 app.use(bodyParser.json());
 
-const port = 4000
+const port: any = 4000 | process.env.PORT as any;
 
 let lists: any[] = [];
 
