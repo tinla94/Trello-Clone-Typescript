@@ -23,7 +23,9 @@ const AddNewItem: React.FC<AddItemsProps> = ({ onAdd, toggleButtonText, dark }) 
   }
 
   return (
-    <AddItemButton dark={dark} onClick={() => setShowForm(true)}>
+    <AddItemButton 
+      dark={dark} 
+      onClick={() => setShowForm(true)}>
       {toggleButtonText}
     </AddItemButton>
   );

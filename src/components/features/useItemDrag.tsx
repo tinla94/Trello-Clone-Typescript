@@ -6,22 +6,22 @@ import { DragItem } from 'typings/DragItem';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 
 
-const useItemDrag = (item: DragItem) => {
-    const { dispatch } = useAppState();
+export const useItemDrag = (item: DragItem) => {
+    const { dispatch } = useAppState()
     const [, drag, preview] = useDrag({
         item,
-        begin: () => dispatch({
-            type: ActionTypes.SET_DRAGGED_ITEM,
-            payload: item
+        begin: () =>
+            dispatch({
+                type: ActionTypes.SET_DRAGGED_ITEM,
+                payload: item,
+            }),
+        end: () => dispatch({ 
+            type: ActionTypes.SET_DRAGGED_ITEM, 
+            payload: undefined 
         }),
-        end: () => dispatch({ type: ActionTypes.SET_DRAGGED_ITEM, payload: undefined })
     })
-
     useEffect(() => {
-        preview(getEmptyImage(), { captureDraggingState: true });
-    }, [preview]);
-
-    return { drag };
-}
-
-export default useItemDrag
+        preview(getEmptyImage(), { captureDraggingState: true })
+    }, [preview])
+    return { drag }
+};

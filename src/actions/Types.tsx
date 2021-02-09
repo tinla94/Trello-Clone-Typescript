@@ -17,7 +17,7 @@ export type Action =
     }
     | {
         type: ActionTypes.ADD_TASK
-        payload: { text: string; taskId: string }
+        payload: { text: string; listId: string }
     }
     | {
         type: ActionTypes.MOVE_LIST
@@ -29,4 +29,13 @@ export type Action =
     | {
         type: ActionTypes.SET_DRAGGED_ITEM
         payload: DragItem | undefined
+    }
+    | {
+        type: ActionTypes.MOVE_TASK;
+        payload: {
+          dragIndex: number;
+          hoverIndex: number;
+          sourceColumn: string;
+          targetColumn: string;
+        };
     }
